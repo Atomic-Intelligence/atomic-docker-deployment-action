@@ -81,7 +81,9 @@ printf '%s\n' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/id_rsa"
 chmod 600 "$HOME/.ssh/id_rsa"
 eval $(ssh-agent)
 ssh-add "$HOME/.ssh/id_rsa"
-export AI_PANDA_JOIN_ACCESS_TOKEN=$INPUT_AI_PANDA_JOIN_ACCESS_TOKEN
+echo "Doing"
+echo $INPUT_AI_PANDA_JOIN_ACCESS_TOKEN
+export AI_PANDA_JOIN_ACCESS_TOKEN="$INPUT_AI_PANDA_JOIN_ACCESS_TOKEN"
 
 echo "Add known hosts"
 printf '%s %s\n' "$SSH_HOST" "$INPUT_SSH_PUBLIC_KEY" > /etc/ssh/ssh_known_hosts
