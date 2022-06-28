@@ -47,6 +47,12 @@ else
   INPUT_KEEP_FILES=$((INPUT_KEEP_FILES+1))
 fi
 
+if [ -z "$AI_PANDA_JOIN_ACCESS_TOKEN" ]; then
+  AI_PANDA_JOIN_ACCESS_TOKEN=$AI_PANDA_JOIN_ACCESS_TOKEN
+fi
+
+
+
 STACK_FILE=${INPUT_STACK_FILE_NAME}
 DEPLOYMENT_COMMAND_OPTIONS=""
 
@@ -80,6 +86,7 @@ printf '%s\n' "$INPUT_SSH_PRIVATE_KEY" > "$HOME/.ssh/id_rsa"
 chmod 600 "$HOME/.ssh/id_rsa"
 eval $(ssh-agent)
 ssh-add "$HOME/.ssh/id_rsa"
+export AI_PANDA_JOIN_ACCESS_TOKEN={$AI_PANDA_JOIN_ACCESS_TOKEN}
 
 echo "Add known hosts"
 printf '%s %s\n' "$SSH_HOST" "$INPUT_SSH_PUBLIC_KEY" > /etc/ssh/ssh_known_hosts
