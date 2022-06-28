@@ -47,9 +47,10 @@ else
   INPUT_KEEP_FILES=$((INPUT_KEEP_FILES+1))
 fi
 
-if [ -z "$AI_PANDA_JOIN_ACCESS_TOKEN" ]; then
+if [ -z "$INPUT_AI_PANDA_JOIN_ACCESS_TOKEN" ]; then
   AI_PANDA_JOIN_ACCESS_TOKEN=$AI_PANDA_JOIN_ACCESS_TOKEN
 fi
+ai_panda_join_access_token
 
 
 
